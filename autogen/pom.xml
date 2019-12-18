@@ -49,14 +49,29 @@
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-hdfs</artifactId>
-      <version>${hadoop.mr2.version}</version>
+      <version>${hadoop.mr3.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
-      <version>${hadoop.mr2.version}</version>
+      <version>${hadoop.mr3.version}</version>
     </dependency>
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>hadoop3.2</id>
+      <properties>
+        <hadoop.mr3.version>3.2.0</hadoop.mr3.version>
+      </properties>
+      <activation>
+        <property>
+          <name>hadoop</name>
+          <value>3.2</value>
+        </property>
+      </activation>
+    </profile>
+  </profiles>
 
   <build>
     <plugins>

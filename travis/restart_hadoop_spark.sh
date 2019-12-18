@@ -14,9 +14,9 @@
 # limitations under the License.
 
 # stop process
-/opt/hadoop-2.6.5/sbin/stop-dfs.sh
-/opt/hadoop-2.6.5/sbin/stop-yarn.sh
-/opt/hadoop-2.6.5/sbin/stop-all.sh
+/opt/$HADOOP_BINARIES_FOLDER/sbin/stop-dfs.sh
+/opt/$HADOOP_BINARIES_FOLDER/sbin/stop-yarn.sh
+/opt/$HADOOP_BINARIES_FOLDER/sbin/stop-all.sh
 
 # clear data directories
 mkdir -p /usr/local/hdfs/namenode/
@@ -25,16 +25,19 @@ rm -fr /usr/local/hdfs/namenode/*
 rm -fr /usr/local/hdfs/datanode/*
 
 # remove related logs
-rm -fr /opt/hadoop-2.6.5/logs/*
+rm -fr /opt/$HADOOP_BINARIES_FOLDER/logs/*
 
 # hdfs format
-/opt/hadoop-2.6.5/bin/hdfs namenode -format
+/opt/$HADOOP_BINARIES_FOLDERbin/hdfs namenode -format
 
 # restart hdfs
-/opt/hadoop-2.6.5/sbin/start-dfs.sh
+/opt/$HADOOP_BINARIES_FOLDER/sbin/start-dfs.sh
 
 # restart yarn
-/opt/hadoop-2.6.5/sbin/start-yarn.sh
+/opt/$HADOOP_BINARIES_FOLDER/sbin/start-yarn.sh
 
 # restart spark
-/opt/spark-1.6.0-bin-hadoop2.6/sbin/start-all.sh
+/opt/$SPARK_BINARIES_FOLDER/sbin/start-all.sh
+
+# list nodes
+/opt/$HADOOP_BINARIES_FOLDER/bin/yarn node -list 2
