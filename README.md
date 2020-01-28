@@ -148,4 +148,10 @@ There are totally 19 workloads in HiBench. The workloads are divided into 6 cate
 
 ---
 
+### Example for building the Benchmark with Hadoop 3.0 and Spark 2.4 (excluding Streaming)
 
+    mvn -Phadoopbench -Psparkbench -Dspark=2.4 -Dscala=2.11 -Dexclude-streaming clean package
+
+* Must also change the configurations in 
+    /conf/
+regarding Hadoop and Spark paths.
